@@ -5,8 +5,7 @@
  * fecha de actualizacion:08/06/2022
  */
 package View;
-import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
+
 public class Inicio extends javax.swing.JFrame {
     
     public Inicio() {

@@ -7,10 +7,6 @@
 package model;
 
 
-/**
- *
- * @author Usuario
- */
 public class ConsultaRFC {
 
     private void cadenaAleatoria(){

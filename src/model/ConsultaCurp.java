@@ -7,7 +7,7 @@ package model;
  */ 
 public class ConsultaCurp {
 
-static String nombres,apellidoP,apellidoM,Sexo;
+static String nombres,apellidoP,apellidoM, Sexo;
 static char con_nomb,con_am, Con_ap;
 static String Estado,Fecha; 
 static Integer Dia=0, Año=0, Mes =0;

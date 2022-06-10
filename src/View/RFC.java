@@ -10,7 +10,7 @@ import pojo.Usuario;
 public class RFC extends javax.swing.JFrame {
     private String curp;
     public RFC(String curp) {
-        this.curp = curp;
+        this.curp =curp;
         initComponents();
         this.jTextField1.setText(curp);
     }
