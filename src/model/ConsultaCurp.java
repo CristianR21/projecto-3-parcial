@@ -1,14 +1,9 @@
-package view;
+package model;
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-/**
- *
- * @author cristian
+ * Creador:cristian adair ramirez rodriguez
+ * Materia: Paradigmas 1
+*Fecah de creacion: 28 de mayor de 2022
+ * fecha de actualizacion:08/06/2022
  */
 public class ConsultaCurp {
 

@@ -1,6 +1,12 @@
-
+/*
+ * Creador:cristian adair ramirez rodriguez
+ * Materia: Paradigmas 1
+*Fecah de creacion: 28 de mayor de 2022
+ * fecha de actualizacion:08/06/2022
+ */
 package View;
 import View.Inicio;
+import pojo.Usuario;
 public class RFC extends javax.swing.JFrame {
     private String curp;
     public RFC(String curp) {
@@ -61,7 +67,7 @@ public class RFC extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 217, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 217, -1));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 217, -1));
 
         jLabel4.setText("Su RFC es:");
@@ -97,7 +103,11 @@ public class RFC extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+       Usuario U=new Usuario();
+       U.setNombre(jTextField1.getText());
+              U.setCurp(jTextField1.getText());
+              
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**

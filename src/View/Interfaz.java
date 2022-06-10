@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import View.Inicio;
 import View.RFC;
+import model.ConsultaCurp;
 
 
 /**
