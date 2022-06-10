@@ -5,17 +5,22 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import view.ConsultaCurp;
+
 /**
  *
  * @author Usuario
  */
-public class InterfazCurp extends javax.swing.JFrame {
-
-    /**
-     * Creates new form InterfazCurp
-     */
+public class InterfazCurp extends javax.swing.JFrame {    
+    ConsultaCurp op= new ConsultaCurp ();
+     DefaultTableModel modelo= new DefaultTableModel();
+        int cont=1;//definimos una variable global para el contenedor     
     public InterfazCurp() {
         initComponents();
+        modelo=(DefaultTableModel)jtable.getModel();
+
     }
 
     /**
@@ -27,10 +32,38 @@ public class InterfazCurp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JTextField();
+        lbapellido2 = new javax.swing.JTextField();
+        lbapellido1 = new javax.swing.JTextField();
+        rthombre = new javax.swing.JRadioButton();
+        rtmujer = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Dia = new javax.swing.JSpinner();
+        Mes = new javax.swing.JSpinner();
+        Año = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        estado = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        lbresultado = new javax.swing.JTextField();
+        boton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtable = new javax.swing.JTable();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,57 +71,308 @@ public class InterfazCurp extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/bandera de mexico.jpg"))); // NOI18N
 
+        jLabel2.setText("Nombre(s)");
+
+        jLabel3.setText("Apellido Paterno");
+
+        jLabel5.setText("Apellido Materno");
+
+        buttonGroup1.add(rthombre);
+        rthombre.setText("Hombre");
+
+        buttonGroup1.add(rtmujer);
+        rtmujer.setText("Mujer");
+
+        jLabel4.setText("Sexo");
+
+        jLabel6.setText("Día");
+
+        jLabel7.setText("Mes");
+
+        jLabel8.setText("Año");
+
+        jLabel9.setText("Estado");
+
+        estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "baja california sur", "chiapas", "veracruz", "tabasco", "aguascaliente", "mexico", "distrito federal", "puebla", "guanajuato", "coahuila", "Hidalgo", "nuevo leon", "morelos", "tlaxcala", "yucatan", "queretaro", "san luis potosí", "sonora", "tamahulipas", "zacatecas", "quintana roo", "sinaloa", "baja california", "campeche", "colima", "chihuahua", "durango", "guerrero", "jalisco", "michohacan", "nayarit", "oaxaca" }));
+
+        jLabel10.setText("Estado");
+
+        boton.setText("Consultar");
+        boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Ver RFC");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Regresar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbapellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbapellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(Mes))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(Año, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(Dia)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(rthombre)
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(49, 49, 49)
+                                .addComponent(lbresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                                .addComponent(boton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rtmujer)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(97, 97, 97))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(lbapellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7)
+                                .addComponent(Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(lbapellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(Año, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rthombre)
+                    .addComponent(rtmujer)
+                    .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lbresultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(39, 39, 39))
         );
 
-        jTabbedPane2.addTab("tab1", jPanel1);
+        jTabbedPane2.addTab("CURP", jPanel1);
+
+        jtable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre(s)", "Apellido Paterno", "Apellido Materno", "Dia", "Mes", "Año", "Sexo", "Estado", "Curpfinal"
+            }
+        ));
+        jScrollPane1.setViewportView(jtable);
+
+        jToggleButton1.setText("Eliminar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        jToggleButton2.setText("Eliminar todo");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jToggleButton1)
+                .addGap(57, 57, 57)
+                .addComponent(jToggleButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton2))
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane2.addTab("tab2", jPanel2);
+        jTabbedPane2.addTab("Tablas", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+         int a=jtable.getRowCount();
+        while(a!=0){
+            modelo.removeRow(0);
+            a=jtable.getRowCount();
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+       if (jtable.getSelectedRow()!=-1){
+            modelo.removeRow(jtable.getSelectedRow());
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"no a seleccionado fila");
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new RFC(this.lbresultado.getText().toString()).setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
+        String nomb =lblnombre.getText();//obtendremos los elementos del nombre
+        String apeP =lbapellido1.getText();//obtendremos los elemntos del primer apellido(paterno)
+        String apeM=lbapellido2.getText();// obtendremos los elemntos del segundo apellido(materno)
+
+        String entidad=(""+estado.getSelectedItem());//obtenemosla entidad federativa
+
+        String  Gen="";
+        //comparamos la opcion que eligio el ususario con respecto a su genero
+        if(rthombre.isSelected()){
+            Gen="hombre";
+        }if(rtmujer.isSelected()){
+            Gen="mujer";
+        }
+        //obtendremos los datos de la fecha de nacimiento del usuario
+        String dia=Dia.getValue().toString();
+        String mes=Mes.getValue().toString();
+        String año=Año.getValue().toString();
+        //llamamos a los métodos a través de la instancia
+        op.nombres(nomb);
+        op.Apellido_materno(apeM);
+        op.Fecha_nacimiento(año,mes,dia);
+        op.Genero(Gen);
+        op.Entidad_nacimiento(entidad);
+
+        lbresultado.setText(op.curp_g(apeP,nomb, apeM,Gen,entidad));
+
+        Object[]obj=new Object[10];//creamos un objeto y lo instanciamos de la clase
+        //agregamos un contador a los datos que ya nos habia proporcionado el usuario
+        obj[0]=cont++;
+        obj[1]=lblnombre.getText();
+        obj[2]=lbapellido1.getText();
+        obj[3]=lbapellido2.getText();
+        obj[4]=Dia.getValue();
+        obj[5]=Mes.getValue();
+        obj[6]=Año.getValue();
+        obj[7]=Gen;
+        obj[8]=estado.getSelectedItem();
+        obj[9]=lbresultado.getText();
+        modelo.addRow(obj);
+        jtable.setModel(modelo);                                    
+
+    }//GEN-LAST:event_botonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,9 +410,37 @@ public class InterfazCurp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JSpinner Año;
+    private javax.swing.JSpinner Dia;
+    private javax.swing.JSpinner Mes;
+    private javax.swing.JButton boton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> estado;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JTable jtable;
+    private javax.swing.JTextField lbapellido1;
+    private javax.swing.JTextField lbapellido2;
+    private javax.swing.JTextField lblnombre;
+    private javax.swing.JTextField lbresultado;
+    private javax.swing.JRadioButton rthombre;
+    private javax.swing.JRadioButton rtmujer;
     // End of variables declaration//GEN-END:variables
 }

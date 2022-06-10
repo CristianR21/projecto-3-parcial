@@ -32,7 +32,6 @@ public class Interfaz extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -65,7 +64,6 @@ public class Interfaz extends javax.swing.JFrame {
         bteliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(255, 51, 51), new java.awt.Color(51, 51, 255), new java.awt.Color(51, 255, 51), null)));
@@ -74,9 +72,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.setAutoscrolls(true);
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setName("CURP"); // NOI18N
-        jPanel1.setLayout(null);
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(1034, 36, 0, 0);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 204));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 5));
@@ -286,63 +282,24 @@ public class Interfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tabla de registro", jPanel3);
 
-        jPanel1.add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 20, 970, 480);
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 970, 480));
         jTabbedPane1.getAccessibleContext().setAccessibleName("Genera Curp\n");
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 560));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         jPanel1.getAccessibleContext().setAccessibleName("CURP");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lbresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbresultadoActionPerformed
-        Inicio in=new Inicio();
-        in.setVisible(true);
-    }//GEN-LAST:event_lbresultadoActionPerformed
-
-    private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
-       String nomb =lblnombre.getText();//obtendremos los elementos del nombre 
-       String apeP =lbapellido1.getText();//obtendremos los elemntos del primer apellido(paterno)
-       String apeM=lbapellido2.getText();// obtendremos los elemntos del segundo apellido(materno)
-
-       String entidad=(""+estado.getSelectedItem());//obtenemosla entidad federativa
-       
-        String  Gen="";
-        //comparamos la opcion que eligio el ususario con respecto a su genero 
-       if(rthombre.isSelected()){
-          Gen="hombre";
-       }if(rtmujer.isSelected()){
-           Gen="mujer";
-       }
-           //obtendremos los datos de la fecha de nacimiento del usuario
-       String dia=Dia.getValue().toString();
-       String mes=Mes.getValue().toString();
-       String año=Año.getValue().toString();
-       //llamamos a los métodos a través de la instancia
-       op.nombres(nomb);
-       op.Apellido_materno(apeM);
-       op.Fecha_nacimiento(año,mes,dia);
-       op.Genero(Gen);
-       op.Entidad_nacimiento(entidad);
-       
-     lbresultado.setText(op.curp_g(apeP,nomb, apeM,Gen,entidad));
-        
-       Object[]obj=new Object[10];//creamos un objeto y lo instanciamos de la clase
-       //agregamos un contador a los datos que ya nos habia proporcionado el usuario
-               obj[0]=cont++;
-               obj[1]=lblnombre.getText();
-               obj[2]=lbapellido1.getText();
-               obj[3]=lbapellido2.getText();
-               obj[4]=Dia.getValue(); 
-               obj[5]=Mes.getValue(); 
-               obj[6]=Año.getValue(); 
-               obj[7]=Gen;
-               obj[8]=estado.getSelectedItem();
-               obj[9]=lbresultado.getText();
-               modelo.addRow(obj);
-              jtable.setModel(modelo);
-    }//GEN-LAST:event_BotonActionPerformed
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
         if (jtable.getSelectedRow()!=-1){
@@ -362,15 +319,63 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bteliminartActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new RFC(this.lbresultado.getText().toString()).setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
+        String nomb =lblnombre.getText();//obtendremos los elementos del nombre
+        String apeP =lbapellido1.getText();//obtendremos los elemntos del primer apellido(paterno)
+        String apeM=lbapellido2.getText();// obtendremos los elemntos del segundo apellido(materno)
+
+        String entidad=(""+estado.getSelectedItem());//obtenemosla entidad federativa
+
+        String  Gen="";
+        //comparamos la opcion que eligio el ususario con respecto a su genero
+        if(rthombre.isSelected()){
+            Gen="hombre";
+        }if(rtmujer.isSelected()){
+            Gen="mujer";
+        }
+        //obtendremos los datos de la fecha de nacimiento del usuario
+        String dia=Dia.getValue().toString();
+        String mes=Mes.getValue().toString();
+        String año=Año.getValue().toString();
+        //llamamos a los métodos a través de la instancia
+        op.nombres(nomb);
+        op.Apellido_materno(apeM);
+        op.Fecha_nacimiento(año,mes,dia);
+        op.Genero(Gen);
+        op.Entidad_nacimiento(entidad);
+
+        lbresultado.setText(op.curp_g(apeP,nomb, apeM,Gen,entidad));
+
+        Object[]obj=new Object[10];//creamos un objeto y lo instanciamos de la clase
+        //agregamos un contador a los datos que ya nos habia proporcionado el usuario
+        obj[0]=cont++;
+        obj[1]=lblnombre.getText();
+        obj[2]=lbapellido1.getText();
+        obj[3]=lbapellido2.getText();
+        obj[4]=Dia.getValue();
+        obj[5]=Mes.getValue();
+        obj[6]=Año.getValue();
+        obj[7]=Gen;
+        obj[8]=estado.getSelectedItem();
+        obj[9]=lbresultado.getText();
+        modelo.addRow(obj);
+        jtable.setModel(modelo);
+    }//GEN-LAST:event_BotonActionPerformed
+
+    private void lbresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbresultadoActionPerformed
+        Inicio in=new Inicio();
+        in.setVisible(true);
+    }//GEN-LAST:event_lbresultadoActionPerformed
 
      
     public static void main(String args[]) {
@@ -405,7 +410,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

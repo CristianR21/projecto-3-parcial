@@ -1,15 +1,12 @@
 /*
  * Creador:cristian adair ramirez rodriguez
  * Materia: Paradigmas 1
-*Fecah de creacion: 28 de mayor de 2022
+ *Fecah de creacion: 28 de mayor de 2022
  * fecha de actualizacion:08/06/2022
  */
 package View;
-
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
-
-
 public class Inicio extends javax.swing.JFrame {
     
     public Inicio() {
@@ -25,6 +22,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,6 +57,14 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, -1, -1));
 
+        jButton1.setText("Cerrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 230));
 
         pack();
@@ -66,7 +72,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Interfaz i =new Interfaz();
-        InterfazTemp i = new InterfazTemp();
+        InterfazCurp i = new InterfazCurp();
         i.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -77,6 +83,12 @@ public class Inicio extends javax.swing.JFrame {
         this.hide();
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Inicio in=new Inicio();
+        in.setVisible(false);
+        in.hide();
+    }//GEN-LAST:event_jButton1ActionPerformed
 public void cerrar(){
 Inicio i=new Inicio();
         i.setVisible(false);
@@ -118,6 +130,7 @@ Inicio i=new Inicio();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
