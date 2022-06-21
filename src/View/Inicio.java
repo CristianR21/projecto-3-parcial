@@ -5,10 +5,12 @@
  * fecha de actualizacion:08/06/2022
  */
 package View;
+
 public class Inicio extends javax.swing.JFrame {
-    
+
     public Inicio() {
         initComponents();
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -28,10 +30,10 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 2, 3, 2, new java.awt.Color(0, 204, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Book Antiqua", 3, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel2.setText("Buenos dias, Aquí podra generar una nueva CURP y  RFC.");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+        jLabel2.setText("Buenos días ,aquí podrá generar una nueva CURP y  RFC.");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 204));
         jButton2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -60,9 +62,9 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 140, 90));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo_small.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 550, 170));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 510, 170));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 570, 560));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 560));
 
         pack();
         setLocationRelativeTo(null);
@@ -76,17 +78,18 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        RFC R = new RFC("");
+        RFC R=new RFC();
         R.setVisible(true);
         this.hide();
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
-public void cerrar(){
-Inicio i=new Inicio();
+    public void cerrar() {
+        Inicio i = new Inicio();
         i.setVisible(false);
         i.dispose();
-}
+    }
+
     /**
      * @param args the command line arguments
      */

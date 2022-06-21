@@ -8,12 +8,26 @@ package View;
 
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author cristian
+ */
 public class RFC extends javax.swing.JFrame {
-    private String curp;
-    public RFC(String curp) {
-        this.curp =curp;
+
+    //private String curp;
+    //private String nombre;
+    public RFC(String curp, String NombreCompleto) {
+        //this.curp =curp;
+        //this.nombre=nombre;
         initComponents();
+        this.setResizable(false);
+
         this.jTextField1.setText(curp);
+        this.jTextField2.setText(NombreCompleto);
+    }
+
+    RFC() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @SuppressWarnings("unchecked")
@@ -52,14 +66,14 @@ public class RFC extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 3, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/regresor.png"))); // NOI18N
-        jButton1.setText("Regresar");
+        jButton1.setText("Regresar al inicio");
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 170, 54));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 200, 54));
 
         jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jTextField1.setText("Ingrese su curp");
@@ -99,7 +113,7 @@ public class RFC extends javax.swing.JFrame {
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 217, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel3.setText("El usuario");
+        jLabel3.setText("El usuario:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 60, 17));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Logo_del_SAT.svg.png"))); // NOI18N
@@ -124,32 +138,36 @@ public class RFC extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Inicio form=new Inicio();
+        Inicio form = new Inicio();
         form.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
 
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    /**
+     *
+     * @param evt
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //verificamos que todos losc campos esten llenos
+        if (jTextField1.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Rellene todos los datos");
 
-        if(jTextField1.getText().equals("")){
-        JOptionPane.showMessageDialog(rootPane, "Rellene todos los datos");
-    
-    }
-     String RFC, curp = jTextField1.getText();
-    jTextField1.setText(curp);
-    RFC = curp.substring(0, 10);
-    try {
-        RFC = RFC + new model.ConsultaRFC().cadenaAleatoria();
-        jTextField3.setText(RFC);
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        JOptionPane.showMessageDialog(rootPane,"Su CURP es: ");
-    }
+        }
+        String RFC, curp = jTextField1.getText();
+        RFC = curp.substring(0, 10);
+        try {
+            RFC = RFC + new model.ConsultaRFC().cadenaAleatoria();
+            jTextField3.setText(RFC);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -164,7 +182,7 @@ public class RFC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

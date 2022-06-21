@@ -3,55 +3,77 @@ package model;
 /*
  * Creador:cristian adair ramirez rodriguez
  * Materia: Paradigmas 1
-*Fecah de creacion: 28 de mayor de 2022
+ *Fecah de creacion: 28 de mayor de 2022
  * fecha de actualizacion:08/06/2022
  */
+/**
+ * 
+ * @author cristian
+ */
 public class ConsultaCurp {
-//Nombramiento de las variables que se usaran.
+    /**
+     * Nombramiento de las variables que se usaran
+     */
     private String nombres, apellidoP, apellidoM, Sexo;
     private char con_nomb, con_am, Con_ap;
     private String Estado, Fecha;
     private Integer Dia = 0, Año = 0, Mes = 0;
 
-
+//En este método no tomaremos en cuenta las vocales para el nombre
+    /**
+     * 
+     * @param nombre
+     * @return 
+     */
    public String nombres(String nombre) {
         nombres = nombre.toUpperCase();
 
         for (int i = 1; i < nombres.length(); i++) {
             char l = nombres.charAt(i);
-            //no tomaremos en cuenta las vocales para el nombre
+            
             if (l != 'A' && l != 'E' && l != 'I' && l != 'O' && l != 'U') {
                 con_nomb = l;
                 break;
             }
         }
-        //retornamos la primer y segunda letra
+        //retornamos la primera y segunda letra
         return nombres.substring(0, 1);
     }
-
+ // En este metodo tomamos la consonante del Apellido materno
+   /**
+    * 
+    * @param Apellidom
+    * @return 
+    */
     public String Apellido_materno(String Apellidom) {
 
         Apellidom = Apellidom.toUpperCase();
         for (int i = 1; i < Apellidom.length(); i++) {
             char l = Apellidom.charAt(i);
             if (l != 'A' && l != 'E' && l != 'I' && l != 'O' && l != 'U') { // excluimos a las vocales
-                con_am = l; // tomamos la consonante del Apellido materno
+                con_am = l;
                 break;
             }
         }
 
         return Apellidom.substring(0, 1);// Primera letra del segundo Apellido...
     }
+// Almacenamos la fecha de nacimiento del sujeto.
+    /**
+     * 
+     * @param año
+     * @param mes
+     * @param dia 
+     */
+    public void Fecha_nacimiento(String año, String mes, String dia) {
 
-    public void Fecha_nacimiento(String año, String mes, String dia) {// Almacenamos la fecha de nacimiento del sujeto....
-
-        Dia = Integer.parseInt(dia); // Permite permite la manipulacion de la cadena 
+        Dia = Integer.parseInt(dia); // Permite la manipulacion de la cadena 
         Mes = Integer.parseInt(mes);
         Año = Integer.parseInt(año);
 
         String año1 = String.valueOf(Año);
 
-        // almacena el año de nacimiento de la persona.....
+        // almacenamos el año de nacimiento de la persona.....
         char c1_año = año1.charAt(2); //Se almacena el penultimo número
         char c2_año = año1.charAt(3);// Se almacena el último número
         String mes1 = String.valueOf(Mes);//obtendremos el valor de el mes
@@ -78,7 +100,12 @@ public class ConsultaCurp {
         Fecha = String.valueOf(c1_año + "" + c2_año + "" + c3_mes + "" + "" + c4_mes + "" + c5_dia + "" + c6_dia);
 
     }
-
+//Obtenemos el sexo del usuario
+    /**
+     * 
+     * @param sexo
+     * @return 
+     */
     public String Genero(String sexo) {
 
         sexo = sexo.toUpperCase();
@@ -99,7 +126,12 @@ public class ConsultaCurp {
 
         return Sexo;
     }
-
+//Obtenemos el estado de la persona 
+    /**
+     * 
+     * @param estadoR
+     * @return 
+     */
     public String Entidad_nacimiento(String estadoR) {
 
         //pasamo el dato de el estado de el usuario
@@ -274,7 +306,15 @@ public class ConsultaCurp {
         }
         return Estado;
     }
-
+/**
+ * 
+ * @param apellidop
+ * @param nombre
+ * @param apellidom
+ * @param sexo
+ * @param entidad
+ * @return 
+ */
     public String curp_g(String apellidop, String nombre, String apellidom, String sexo, String entidad) {
         int i;
 
