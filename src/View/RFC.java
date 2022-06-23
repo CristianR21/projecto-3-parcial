@@ -25,10 +25,17 @@ public class RFC extends javax.swing.JFrame {
         this.jTextField1.setText(curp);
         this.jTextField2.setText(NombreCompleto);
     }
+    
+    public RFC() {
+        //this.curp =curp;
+        //this.nombre=nombre;
+        initComponents();
+        this.setResizable(false);
 
-    RFC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -145,6 +152,7 @@ public class RFC extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Inicio form = new Inicio();
         form.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
